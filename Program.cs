@@ -1,4 +1,6 @@
-﻿void showHelp()
+﻿int[] inputBuffer = { };
+
+void showHelp()
 {
     Console.WriteLine("Нажмите 1 для выполнения команды 1: начать ввод элементов массива");
     Console.WriteLine("Нажмите 2 для выполнения команды 2: завершить ввод элементов массива и вывести результат");
@@ -7,7 +9,37 @@
 
 void startInput()
 {
-    Console.WriteLine("Комманда 1");
+    Console.WriteLine("Введите целое число что бы добавить элемент массива");
+    Console.WriteLine("Что бы выйти из режима ввода массива нажмите Enter");
+    while (true)
+    {
+        string? nextInput = Console.ReadLine();
+        if (nextInput == "")
+        {
+            break;
+        }
+        int nextNumber;
+        try
+        {
+            nextNumber = int.Parse(nextInput!.Replace(" ", ""));
+        }
+        catch (ArgumentNullException)
+        {
+            Console.WriteLine($"Извините, не могу распознать число {nextInput}");
+            continue;
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine($"Извините, не могу распознать число {nextInput} ошибка формата");
+            continue;
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine($"Извините, число {nextInput} выходит за рамки интервала {int.MinValue} .. {int.MaxValue}");
+            continue;
+        }
+        // TODO: add nextNumber to the inputArray.
+    }
 }
 
 void finishInput()
