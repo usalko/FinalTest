@@ -5,17 +5,17 @@
     Console.WriteLine("Нажмите 3 для выполнения команды 3: задать параметры генерации массива случайных чисел и вывести результат");
 }
 
-void command1()
+void startInput()
 {
     Console.WriteLine("Комманда 1");
 }
 
-void command2()
+void finishInput()
 {
     Console.WriteLine("Комманда 2");
 }
 
-void command3()
+void randomTest()
 {
     Console.WriteLine("Комманда 3");
 }
@@ -27,15 +27,15 @@ while (true)
     string? nextInput = Console.ReadLine();
     if (nextInput == "1")
     {
-        command1();
+        startInput();
     }
     else if (nextInput == "2")
     {
-        command2();
+        finishInput();
     }
     else if (nextInput == "3")
     {
-        command3();
+        randomTest();
     }
     else
     {
